@@ -2,13 +2,15 @@ import React, {FC} from 'react';
 import {Layout, Menu, Row} from "antd";
 import {redirect} from "react-router-dom";
 import {RouteNames} from "../routes";
-import {auth} from './AppRouter';
+import {useTypedSelector} from "../hooks/useTypedSelector";
 
 const Navbar: FC = () => {
+    const {isAuth} = useTypedSelector((state) => state.auth)
+
     return (
         <Layout.Header>
             <Row justify={"end"} align={"middle"} style={{height: "100%"}}>
-                {auth
+                {isAuth
                     ?
                     <>
                         <div style={{color: "white", marginRight: "1rem"}}>Dastan R</div>
